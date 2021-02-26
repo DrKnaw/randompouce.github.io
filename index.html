@@ -1,1 +1,35 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<link type="text/css" rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
+	<style type="text/css">
+	html { 
+	  	margin:0;
+	  	padding:0;
+	  	-webkit-background-size: cover;
+	 	 -moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+	}
+	</style>
+</head>
+<body>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+		(function($){
+		    var html = document.getElementsByTagName("html"); 
+			var audio = document.getElementById("audio");
+			$(document).ready(function() {
+				html[0].style.background = `url(/databases/${Math.floor(Math.random() * 70) + 1}.jpg) no-repeat center fixed`;
+				audio.play();
+			});
+			audio.onended = function() {
+				html[0].style.background = `url(/databases/${Math.floor(Math.random() * 70) + 1}.jpg) no-repeat center fixed`;
+				audio.play();
+			};
+		})(jQuery);
+	</script>
+</body>
+</html>
