@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>RandomPouce.com</title>
-<meta name="title" content="RandomPouce..com">
-<meta name="description" content="RandomPouce.com">
-
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://RandomPouce.com/">
-<meta property="og:title" content="RandomPouce.com">
-<meta property="og:description" content="RandomPouce.com">
-
-
+	<title></title>
 	<link type="text/css" rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
 	<style type="text/css">
 	html { 
@@ -21,28 +12,33 @@
 	  	-o-background-size: cover;
 	  	background-size: cover;
 	}
+	audio{display:none}
+	.audiocontrols > .volume {width:140px; position:relative; height:14px}
+	.audiocontrols > .volume > .slider{position:relative;border-radius:5px;background:#dedede; width:100px;height:10px;display:inline-block}
+	.audiocontrols > .volume > .slider > .knob{position:absolute;top:0;left:0;background:#999;border-radius:10px; width:10px; height:10px;cursor:pointer}
 	</style>
 </head>
 <body>
-
+	<audio preload="auto" autobuffer controls id="audio">
+        <source src="/sound/intro-minet.ogg" type="audio/ogg"  />
+        <source src="/sound/intro-minet.mp3" type="audio/mpeg" />
+        <source src="/sound/intro-minet.wav" type="audio/wav" />
+    </audio>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <script type="text/javascript">
-
-function getContentFromIframe(iFrameName)
-{
-
-     var myIFrame = document.getElementById(iFrameName);
-     var content = myIFrame.contentWindow.document.body.innerHTML;
-
-     $("#preview").html(content);
-
-}
 		(function($){
 		    var html = document.getElementsByTagName("html"); 
 			var audio = document.getElementById("audio");
-				html[0].style.background = `url(/databases/${Math.floor(Math.random() * 76) + 1}.jpg) no-repeat center fixed`;
-			
+			$(document).ready(function() {
+				var lol = "/databases/${Math.floor(Math.random() * 70) + 1}.jpg"
+				html[0].style.background = `url(lol) no-repeat center fixed`;
+				audio.play();
+			});
+			audio.onended = function() {
+				html[0].style.background = `url(/databases/${Math.floor(Math.random() * 70) + 1}.jpg) no-repeat center fixed`;
+				audio.play();
+			};
 		})(jQuery);
 	</script>
 </body>
